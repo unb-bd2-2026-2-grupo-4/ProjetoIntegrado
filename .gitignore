@@ -1,0 +1,47 @@
+# Dados e Armazenamento Local
+data/*
+!data/.gitkeep
+*.csv
+*.tsv
+*.parquet
+*.jsonl
+*.db
+*.duckdb
+*.duckdb.wal
+*.sqlite
+*.sqlite3
+
+# Docker Volumes e Serviços Locais
+pg_data/
+minio_data/
+postgres_data/
+
+# Ambientes Virtuais e Dependências Python
+.venv/
+venv/
+env/
+ENV/
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# dbt Artefatos
+target/
+dbt_packages/
+logs/
+*.log
+
+# Variáveis de Ambiente e Segredos
+.env
+.env.*
+!.env.example
+
+# IDEs e Editores
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
