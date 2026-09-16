@@ -1,0 +1,62 @@
+site_name: Plataforma de Dados — Novo CAGED
+site_description: Projeto Integrado da disciplina de Banco de Dados 2 (FCTE-UnB) - Squad G4
+site_author: Squad G4
+repo_url: https://github.com/arthurevg/ProjetoIntegrado
+repo_name: arthurevg/ProjetoIntegrado
+
+theme:
+  name: material
+  language: pt-BR
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.expand
+    - content.code.copy
+    - search.suggest
+    - search.highlight
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Alternar para modo escuro
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Alternar para modo claro
+
+extra_css:
+  - stylesheets/extra.css
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.tabbed:
+      alternate_style: true
+  - tables
+  - attr_list
+  - md_in_html
+
+nav:
+  - Início: index.md
+  - Domínio e Gestão: dominio.md
+  - Arquitetura da Plataforma: arquitetura.md
+  - Diário de Bordo:
+      - Semana 01: diario/semana-01.md
+      - Semana 02: diario/semana-02.md
+      - Semana 03: diario/semana-03.md
+  - Decisões de Arquitetura (ADR):
+      - Template de ADR: adr/template.md
+  - Governança e IA: uso-de-ia.md

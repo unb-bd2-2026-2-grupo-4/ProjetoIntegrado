@@ -6,7 +6,7 @@
 
 ---
 
-## 👥 A Squad
+## A Squad
 
 - **Arthur Evangelista**
 - **Davi Camilo**
@@ -18,7 +18,7 @@
 
 ---
 
-## 🎯 Domínio e Problema
+## Domínio e Problema
 
 Pessoas que buscam emprego enfrentam grande assimetria de informação: é difícil saber com precisão quando e onde a contratação formal está aquecendo ou esfriando, e faltam evidências públicas consolidadas sobre disparidades salariais e de rotatividade por recorte sociodemográfico (gênero, raça/cor, idade, escolaridade). Atualmente, decisões críticas como *"é o momento adequado para buscar recolocação ou transição de carreira?"* ou *"onde o poder público deve focar incentivos à geração de emprego?"* ainda são tomadas baseadas em impressões empíricas (*feeling*).
 
@@ -26,14 +26,14 @@ Esta plataforma constrói o pipeline completo de dados — do sistema transacion
 
 ---
 
-## 👤 Personas
+## Personas
 
 1. **Trabalhador em busca de recolocação:** Busca entender tendências de contratação e demissão por setor econômico, dinâmica salarial e sazonalidade para planejar transições profissionais.
 2. **Pesquisador e Gestor Público de Políticas de Emprego:** Necessita de subsídios estatísticos para avaliar dinâmicas regionais (capitais vs. interior), rotatividade setorial (*turnover*) e desigualdades sociodemográficas no emprego formal.
 
 ---
 
-## ❓ Perguntas de Gestão
+## Perguntas de Gestão
 
 A plataforma foi concebida para responder a cinco perguntas centrais:
 
@@ -45,7 +45,7 @@ A plataforma foi concebida para responder a cinco perguntas centrais:
 
 ---
 
-## 📂 Fontes de Dados
+## Fontes de Dados
 
 - **Principal:** [Novo CAGED — Microdados de Movimentação e Estabelecimentos](https://basedosdados.org/dataset/562b56a3-0b01-4735-a049-eeac5681f056?raw_data_source=59844eec-a948-4ef4-adf0-1db8228fc8e9) (Ministério do Trabalho e Emprego via *Base dos Dados*).
 - **Auxiliares:**
@@ -55,7 +55,7 @@ A plataforma foi concebida para responder a cinco perguntas centrais:
 
 ---
 
-## 🏗️ Arquitetura e Roteiro de Entregas
+## Arquitetura e Roteiro de Entregas
 
 A plataforma é construída incrementalmente ao longo das quatro Entregas da disciplina, operando integralmente em contêineres Docker locais via `docker-compose.yml`:
 
@@ -93,18 +93,29 @@ E3   │ DuckDB + dbt-duckdb   │  (Modelagem Star Schema testada e orquestrada
 
 ---
 
-## 📁 Estrutura do Repositório
+## Estrutura do Repositório
 
 ```text
 .
+├── .github/
+│   └── workflows/
+│       └── deploy-docs.yml # Pipeline de deploy automatizado no GitHub Pages
 ├── .gitignore              # Regras de exclusão para dados locais, binários e ambientes
 ├── AI-USAGE.md             # Registro contemporâneo de uso de assistentes de IA (conforme política)
 ├── README.md               # Visão geral da plataforma, domínio, setup e governança
 ├── docker-compose.yml      # Manifesto que sobe todos os serviços locais da plataforma (E1 a E4)
+├── mkdocs.yml              # Configuração do portal de documentação (Material for MkDocs)
+├── requirements-docs.txt   # Dependências Python para execução local do MkDocs
 ├── docker/                 # Arquivos de configuração e Dockerfiles dos serviços
 ├── src/                    # Scripts de ingestão, pipeline e transformações
 ├── data/                   # Diretório reservado para volumes locais (ignorado no git)
 └── docs/
+    ├── index.md            # Página inicial do site de documentação
+    ├── dominio.md          # Detalhamento do domínio, personas e 5 perguntas de gestão
+    ├── arquitetura.md      # Visão técnica das camadas e Entregas (E1 a E4)
+    ├── uso-de-ia.md        # Política de transparência de IA
+    ├── stylesheets/
+    │   └── extra.css       # Estilização customizada com texto justificado
     ├── adr/                # Registros de Decisões de Arquitetura (Método de Decisão em 6 passos)
     │   └── template.md     # Template oficial Nygard padronizado para os ADRs
     └── diario/             # Diários de bordo semanais da Squad G4
@@ -115,7 +126,27 @@ E3   │ DuckDB + dbt-duckdb   │  (Modelagem Star Schema testada e orquestrada
 
 ---
 
-## 🚀 Como Subir a Plataforma (Ambiente Local)
+## Portal de Documentação (MkDocs)
+
+Toda a documentação técnica da plataforma, incluindo diários de bordo, justificativas de engenharia e decisões de arquitetura, está disponível em formato de portal web estruturado e com **texto justificado**.
+
+### Como Rodar a Documentação Localmente
+
+**Opção A — Via Docker Compose (Recomendado, sem instalar nada na máquina):**
+```bash
+docker compose up docs
+```
+Acesse no seu navegador: [http://localhost:8000](http://localhost:8000) (com recarregamento automático a cada alteração salva).
+
+**Opção B — Via Python:**
+```bash
+pip install -r requirements-docs.txt
+mkdocs serve
+```
+
+---
+
+## Como Subir a Plataforma (Ambiente Local)
 
 ### Pré-requisitos
 - [Git](https://git-scm.com/)
@@ -127,13 +158,16 @@ E3   │ DuckDB + dbt-duckdb   │  (Modelagem Star Schema testada e orquestrada
 git clone https://github.com/arthurevg/ProjetoIntegrado.git
 cd ProjetoIntegrado
 
-# 2. Subir os serviços essenciais via Docker Compose (disponível a partir da E1)
+# 2. Subir a documentação localmente
+docker compose up docs
+
+# 3. Subir os serviços transacionais e analíticos da plataforma (disponíveis a partir da E1)
 # docker compose up -d
 ```
 
 ---
 
-## 📜 Governança, Ética e Uso de IA
+## Governança, Ética e Uso de IA
 
 - **Uso de IA:** Este repositório cumpre integralmente a [Política de Uso de IA](https://unb-bd2.github.io/Disciplina/uso-de-ia/) da disciplina. Todas as contribuições de assistentes são documentadas de forma contemporânea no arquivo [`AI-USAGE.md`](./AI-USAGE.md).
 - **ADRs:** Todas as decisões arquiteturais seguem o **Método de Decisão em 6 passos** e ficam versionadas em [`docs/adr/`](./docs/adr/).

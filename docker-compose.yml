@@ -1,0 +1,10 @@
+services:
+  docs:
+    image: squidfunk/mkdocs-material:latest
+    container_name: g4_docs
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/docs
+    command: serve --dev-addr=0.0.0.0:8000
