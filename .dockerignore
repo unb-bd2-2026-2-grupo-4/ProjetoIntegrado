@@ -1,0 +1,11 @@
+# Os dados entram no contêiner por volume, nunca pela imagem (são ~830 MB de CSV).
+data/
+.git/
+site/
+docs/
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.env
+.DS_Store

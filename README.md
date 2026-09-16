@@ -102,13 +102,22 @@ E3   │ DuckDB + dbt-duckdb   │  (Modelagem Star Schema testada e orquestrada
 ├── docker-compose.yml      # Manifesto que sobe todos os serviços locais da plataforma (E1 a E4)
 ├── mkdocs.yml              # Configuração do portal de documentação (Material for MkDocs)
 ├── requirements-docs.txt   # Dependências Python para execução local do MkDocs
+├── requirements-pipeline.txt # Dependências Python da ingestão e das migrações
+├── .env.example            # Variáveis de ambiente do PostgreSQL (opcional)
 ├── docker/                 # Arquivos de configuração e Dockerfiles dos serviços
+│   └── ingestao/Dockerfile # Imagem da tarefa de carga da camada bronze
 ├── src/                    # Scripts de ingestão, pipeline e transformações
+│   ├── db/
+│   │   ├── migrar.py       # Aplica migrações pendentes (registradas em public.schema_migracoes)
+│   │   └── migracoes/      # Migrações SQL versionadas (0001_camada_bronze.sql, ...)
+│   └── ingestao/
+│       └── carga_bronze.py # Carga idempotente dos CSVs brutos do CAGED no schema bronze
 ├── data/                   # Diretório reservado para volumes locais (ignorado no git)
 └── docs/
     ├── index.md            # Página inicial do site de documentação
     ├── dominio.md          # Detalhamento do domínio, personas e 5 perguntas de gestão
     ├── arquitetura.md      # Visão técnica das camadas e Entregas (E1 a E4)
+    ├── camada-bronze.md    # Regras, modelo, execução e medições da camada bronze
     ├── uso-de-ia.md        # Política de transparência de IA
     ├── stylesheets/
     │   └── extra.css       # Estilização customizada com texto justificado
@@ -117,7 +126,8 @@ E3   │ DuckDB + dbt-duckdb   │  (Modelagem Star Schema testada e orquestrada
     └── diario/             # Diários de bordo semanais da Squad G4
         ├── semana-01.md    # Formação da Squad e alinhamento dos critérios de avaliação
         ├── semana-02.md    # Escolha do domínio, personas e as 5 perguntas de gestão
-        └── semana-03.md    # Engenharia de Dados aplicada ao projeto e mapeamento de riscos
+        ├── semana-03.md    # Engenharia de Dados aplicada ao projeto e mapeamento de riscos
+        └── semana-04.md    # Perfil dos dados brutos e carga da camada bronze no PostgreSQL
 ```
 
 ---
@@ -162,9 +172,15 @@ cd ProjetoIntegrado
 # 2. Subir a documentação localmente
 docker compose up docs
 
-# 3. Subir os serviços transacionais e analíticos do METRA (disponíveis a partir da E1)
-# docker compose up -d
+# 3. Subir o PostgreSQL 16
+docker compose up -d postgres
+
+# 4. Carregar a camada bronze (CSVs do CAGED exportados do BigQuery em data/)
+#    Idempotente: pode ser executado de novo, arquivos já carregados são ignorados.
+docker compose run --rm ingestao-bronze
 ```
+
+Detalhes da carga, validações e medições em [`docs/camada-bronze.md`](./docs/camada-bronze.md).
 
 ---
 

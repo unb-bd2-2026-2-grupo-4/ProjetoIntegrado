@@ -8,3 +8,46 @@ services:
     volumes:
       - .:/docs
     command: serve --dev-addr=0.0.0.0:8000
+
+  postgres:
+    image: postgres:16
+    container_name: g4_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-metra}
+      POSTGRES_USER: ${POSTGRES_USER:-metra}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-metra}
+    # Cargas em lote de milhões de linhas: evita checkpoints forçados a cada 1 GB de WAL.
+    command: postgres -c max_wal_size=4GB
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  # Tarefa pontual (não sobe com `docker compose up`):
+  #   docker compose run --rm ingestao-bronze
+  ingestao-bronze:
+    build:
+      context: .
+      dockerfile: docker/ingestao/Dockerfile
+    profiles: ["ingestao"]
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      PGHOST: postgres
+      PGPORT: 5432
+      PGDATABASE: ${POSTGRES_DB:-metra}
+      PGUSER: ${POSTGRES_USER:-metra}
+      PGPASSWORD: ${POSTGRES_PASSWORD:-metra}
+      METRA_DATA_DIR: /app/data
+    volumes:
+      - ./data:/app/data:ro
+
+volumes:
+  postgres_data:

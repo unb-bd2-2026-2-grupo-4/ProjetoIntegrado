@@ -54,10 +54,12 @@ nav:
   - Início: index.md
   - Domínio e Gestão: dominio.md
   - Arquitetura da Plataforma: arquitetura.md
+  - Camada Bronze: camada-bronze.md
   - Diário de Bordo:
       - Semana 01: diario/semana-01.md
       - Semana 02: diario/semana-02.md
       - Semana 03: diario/semana-03.md
+      - Semana 04: diario/semana-04.md
   - Decisões de Arquitetura (ADR):
       - Template de ADR: adr/template.md
   - Governança e IA: uso-de-ia.md
