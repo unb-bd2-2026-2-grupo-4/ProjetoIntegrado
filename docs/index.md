@@ -4,17 +4,17 @@ Bem-vindo à documentação oficial da plataforma de dados desenvolvida pela **S
 
 ---
 
-## A Squad
+## Membros
 
-| Membro | Papel / Foco de Atuação |
-|---|---|
-| **Arthur Evangelista** | Engenharia de Dados & Modelagem Transacional (OLTP) |
-| **Davi Camilo** | Engenharia de Dados & Ingestão / CDC |
-| **Eduardo de Pina** | Armazenamento Analítico & Infraestrutura Docker |
-| **Euller Júlio** | Modelagem Analítica & Transformações dbt |
-| **Lucas Alves** | Qualidade de Dados & Orquestração |
-| **Tiago Antunes** | Camada Semântica & ETL Reverso |
-| **Yan Matheus** | Visualização de Dados & Governança / LGPD |
+| Membro                 | matrícula |
+| ---------------------- | --------- |
+| **Arthur Evangelista** | 231027032 |
+| **Davi Camilo**        | 231011220 |
+| **Eduardo de Pina**    | 231034494 |
+| **Euller Júlio**       | 231026714 |
+| **Lucas Alves**        | 231027159 |
+| **Tiago Antunes**      | 231011838 |
+| **Yan Matheus**        | 231038303 |
 
 ---
 
