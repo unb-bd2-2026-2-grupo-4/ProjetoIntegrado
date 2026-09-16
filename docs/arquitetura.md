@@ -1,6 +1,6 @@
-# Arquitetura da Plataforma de Dados
+# Arquitetura da Plataforma METRA
 
-A plataforma foi projetada para cobrir integralmente o ciclo de vida do dado, do sistema transacional à decisão gerencial, com **100% de tecnologias livres** orquestradas localmente via **Docker Compose**.
+O **METRA** foi projetado para cobrir integralmente o ciclo de vida do dado, do sistema transacional à decisão gerencial, com **100% de tecnologias livres** orquestradas localmente via **Docker Compose**.
 
 ---
 

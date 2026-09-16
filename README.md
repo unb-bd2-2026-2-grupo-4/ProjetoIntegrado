@@ -1,8 +1,8 @@
-# Plataforma de Dados do Mercado de Trabalho Formal (Novo CAGED)
+# METRA — Monitoramento e Engenharia de dados do TRAbalho
 
+> **Plataforma de Dados do Mercado de Trabalho Formal (Novo CAGED)**  
 > **Projeto Integrado — Banco de Dados 2 (FCTE / Universidade de Brasília)**  
-> **Oferta:** 2026/2  
-> **Squad G4**
+> **Oferta:** 2026/2 | **Squad G4**
 
 ---
 
@@ -22,7 +22,7 @@
 
 Pessoas que buscam emprego enfrentam grande assimetria de informação: é difícil saber com precisão quando e onde a contratação formal está aquecendo ou esfriando, e faltam evidências públicas consolidadas sobre disparidades salariais e de rotatividade por recorte sociodemográfico (gênero, raça/cor, idade, escolaridade). Atualmente, decisões críticas como _"é o momento adequado para buscar recolocação ou transição de carreira?"_ ou _"onde o poder público deve focar incentivos à geração de emprego?"_ ainda são tomadas baseadas em impressões empíricas (_feeling_).
 
-Esta plataforma constrói o pipeline completo de dados — do sistema transacional de origem à decisão analítica e operacional — para responder a perguntas de gestão fundamentadas sobre o mercado de trabalho formal brasileiro.
+O **METRA** constrói o pipeline completo de dados — do sistema transacional de origem à decisão analítica e operacional — para responder a perguntas de gestão fundamentadas sobre o mercado de trabalho formal brasileiro.
 
 ---
 
@@ -35,7 +35,7 @@ Esta plataforma constrói o pipeline completo de dados — do sistema transacion
 
 ## Perguntas de Gestão
 
-A plataforma foi concebida para responder a cinco perguntas centrais:
+O **METRA** foi concebido para responder a cinco perguntas centrais:
 
 1. **Qual setor econômico mais contratou e demitiu no Distrito Federal nos últimos 12 meses?**
 2. **Existe sazonalidade evidente nas contratações e demissões (ex.: pico do comércio no fim de ano)?**
@@ -57,7 +57,7 @@ A plataforma foi concebida para responder a cinco perguntas centrais:
 
 ## Arquitetura e Roteiro de Entregas
 
-A plataforma é construída incrementalmente ao longo das quatro Entregas da disciplina, operando integralmente em contêineres Docker locais via `docker-compose.yml`:
+O **METRA** é construído incrementalmente ao longo das quatro Entregas da disciplina, operando integralmente em contêineres Docker locais via `docker-compose.yml`:
 
 ```
 [Dados Abertos: CAGED / IBGE / CBO]
@@ -102,7 +102,7 @@ E3   │ DuckDB + dbt-duckdb   │  (Modelagem Star Schema testada e orquestrada
 │       └── deploy-docs.yml # Pipeline de deploy automatizado no GitHub Pages
 ├── .gitignore              # Regras de exclusão para dados locais, binários e ambientes
 ├── AI-USAGE.md             # Registro contemporâneo de uso de assistentes de IA (conforme política)
-├── README.md               # Visão geral da plataforma, domínio, setup e governança
+├── README.md               # Visão geral do METRA, domínio, setup e governança
 ├── docker-compose.yml      # Manifesto que sobe todos os serviços locais da plataforma (E1 a E4)
 ├── mkdocs.yml              # Configuração do portal de documentação (Material for MkDocs)
 ├── requirements-docs.txt   # Dependências Python para execução local do MkDocs
@@ -128,7 +128,7 @@ E3   │ DuckDB + dbt-duckdb   │  (Modelagem Star Schema testada e orquestrada
 
 ## Portal de Documentação (MkDocs)
 
-Toda a documentação técnica da plataforma, incluindo diários de bordo, justificativas de engenharia e decisões de arquitetura, está disponível em formato de portal web estruturado e com **texto justificado**.
+Toda a documentação técnica do **METRA**, incluindo diários de bordo, justificativas de engenharia e decisões de arquitetura, está disponível em formato de portal web estruturado e com **texto justificado**.
 
 ### Como Rodar a Documentação Localmente
 
@@ -149,7 +149,7 @@ mkdocs serve
 
 ---
 
-## Como Subir a Plataforma (Ambiente Local)
+## Como Subir o METRA (Ambiente Local)
 
 ### Pré-requisitos
 
@@ -166,7 +166,7 @@ cd ProjetoIntegrado
 # 2. Subir a documentação localmente
 docker compose up docs
 
-# 3. Subir os serviços transacionais e analíticos da plataforma (disponíveis a partir da E1)
+# 3. Subir os serviços transacionais e analíticos do METRA (disponíveis a partir da E1)
 # docker compose up -d
 ```
 

@@ -1,6 +1,6 @@
 # AI-USAGE.md — Squad G4
 
-Registro de uso de assistentes e agentes de IA no Projeto Integrado.
+Registro de uso de assistentes e agentes de IA no METRA — Monitoramento e Engenharia de dados do TRAbalho (Projeto Integrado).
 
 Este arquivo cumpre a [Política de Uso de IA](https://unb-bd2.github.io/Disciplina/uso-de-ia/)
 da disciplina. Ele não é confissão nem formalidade: é o mesmo tipo de registro

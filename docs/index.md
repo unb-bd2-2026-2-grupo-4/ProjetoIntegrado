@@ -1,6 +1,6 @@
-# Plataforma de Dados do Mercado de Trabalho Formal (Novo CAGED)
+# METRA — Monitoramento e Engenharia de dados do TRAbalho
 
-Bem-vindo à documentação oficial da plataforma de dados desenvolvida pela **Squad G4** para a disciplina de **Banco de Dados 2** (Engenharia de Software — FCTE / Universidade de Brasília, Oferta 2026/2).
+Bem-vindo à documentação oficial do **METRA** (Monitoramento e Engenharia de dados do TRAbalho), plataforma de dados desenvolvida pela **Squad G4** para a disciplina de **Banco de Dados 2** (Engenharia de Software — FCTE / Universidade de Brasília, Oferta 2026/2).
 
 ---
 
@@ -18,9 +18,9 @@ Bem-vindo à documentação oficial da plataforma de dados desenvolvida pela **S
 
 ---
 
-## Objetivo do Projeto Integrado
+## Objetivo do METRA (Projeto Integrado)
 
-O **Projeto Integrado** costura os quatro módulos da disciplina: a construção de uma plataforma completa de engenharia de dados, partindo de uma fonte transacional (OLTP) modelada e populada a partir de dados públicos reais brasileiros até uma camada analítica de decisão com painéis gerenciais e **ETL reverso**.
+O **METRA** materializa o **Projeto Integrado** da disciplina, costurando seus quatro módulos fundamentais: a construção de uma plataforma completa de engenharia de dados, partindo de uma fonte transacional (OLTP) modelada e populada a partir de dados públicos reais brasileiros até uma camada analítica de decisão com painéis gerenciais e **ETL reverso**.
 
 Nosso domínio de estudo é o **Mercado de Trabalho Formal Brasileiro**, estruturado a partir dos microdados do **Novo CAGED** (Ministério do Trabalho e Emprego) e bases auxiliares do IBGE e CBO.
 
