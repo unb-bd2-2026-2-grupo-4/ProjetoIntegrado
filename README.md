@@ -1,7 +1,7 @@
-# METRA — Monitoramento e Engenharia de dados do TRAbalho
+# METRA - Monitoramento e Engenharia de dados do TRAbalho
 
 > **Plataforma de Dados do Mercado de Trabalho Formal (Novo CAGED)**  
-> **Projeto Integrado — Banco de Dados 2 (FCTE / Universidade de Brasília)**  
+> **Projeto Integrado: Banco de Dados 2 (FCTE / Universidade de Brasília)**  
 > **Oferta:** 2026/2 | **Squad G4**
 
 ---
@@ -22,7 +22,7 @@
 
 Pessoas que buscam emprego enfrentam grande assimetria de informação: é difícil saber com precisão quando e onde a contratação formal está aquecendo ou esfriando, e faltam evidências públicas consolidadas sobre disparidades salariais e de rotatividade por recorte sociodemográfico (gênero, raça/cor, idade, escolaridade). Atualmente, decisões críticas como _"é o momento adequado para buscar recolocação ou transição de carreira?"_ ou _"onde o poder público deve focar incentivos à geração de emprego?"_ ainda são tomadas baseadas em impressões empíricas (_feeling_).
 
-O **METRA** constrói o pipeline completo de dados — do sistema transacional de origem à decisão analítica e operacional — para responder a perguntas de gestão fundamentadas sobre o mercado de trabalho formal brasileiro.
+O **METRA** constrói o pipeline completo de dados, do sistema transacional de origem à decisão analítica e operacional, para responder a perguntas de gestão fundamentadas sobre o mercado de trabalho formal brasileiro.
 
 ---
 
@@ -45,13 +45,9 @@ O **METRA** foi concebido para responder a cinco perguntas centrais:
 
 ---
 
-## Fontes de Dados
+## Fonte de Dados
 
-- **Principal:** [Novo CAGED — Microdados de Movimentação e Estabelecimentos](https://basedosdados.org/dataset/562b56a3-0b01-4735-a049-eeac5681f056?raw_data_source=59844eec-a948-4ef4-adf0-1db8228fc8e9) (Ministério do Trabalho e Emprego via _Base dos Dados_).
-- **Auxiliares:**
-  - **IBGE:** Tabela canônica de Municípios, Microrregiões e Regiões Metropolitanas.
-  - **CBO 2002:** Classificação Brasileira de Ocupações (Ministério do Trabalho e Emprego).
-  - **CNAE 2.0:** Classificação Nacional de Atividades Econômicas (Subclasses).
+- **Principal:** [Novo CAGED - Microdados de Movimentação](https://basedosdados.org/dataset/562b56a3-0b01-4735-a049-eeac5681f056?raw_data_source=59844eec-a948-4ef4-adf0-1db8228fc8e9) (Ministério do Trabalho e Emprego via _Base dos Dados_).
 
 ---
 
@@ -132,7 +128,7 @@ Toda a documentação técnica do **METRA**, incluindo diários de bordo, justif
 
 ### Como Rodar a Documentação Localmente
 
-**Opção A — Via Docker Compose (Recomendado, sem instalar nada na máquina):**
+**Opção A: Via Docker Compose (Recomendado, sem instalar nada na máquina):**
 
 ```bash
 docker compose up docs
@@ -140,7 +136,7 @@ docker compose up docs
 
 Acesse no seu navegador: [http://localhost:8000](http://localhost:8000) (com recarregamento automático a cada alteração salva).
 
-**Opção B — Via Python:**
+**Opção B: Via Python:**
 
 ```bash
 pip install -r requirements-docs.txt
@@ -160,7 +156,7 @@ mkdocs serve
 
 ```bash
 # 1. Clonar o repositório público
-git clone https://github.com/arthurevg/ProjetoIntegrado.git
+git clone https://github.com/unb-bd2-2026-2-grupo-4/ProjetoIntegrado.git
 cd ProjetoIntegrado
 
 # 2. Subir a documentação localmente
@@ -174,6 +170,6 @@ docker compose up docs
 
 ## Governança, Ética e Uso de IA
 
-- **Uso de IA:** Este repositório cumpre integralmente a [Política de Uso de IA](https://unb-bd2.github.io/Disciplina/uso-de-ia/) da disciplina. Todas as contribuições de assistentes são documentadas de forma contemporânea no arquivo [`AI-USAGE.md`](./AI-USAGE.md).
+- **Uso de IA:** Este repositório cumpre integralmente a [Política de Uso de IA](https://unb-bd2.github.io/PlanoEnsino/uso-de-ia/) da disciplina. Todas as contribuições de assistentes são documentadas de forma contemporânea no arquivo [`AI-USAGE.md`](./AI-USAGE.md).
 - **ADRs:** Todas as decisões arquiteturais seguem o **Método de Decisão em 6 passos** e ficam versionadas em [`docs/adr/`](./docs/adr/).
 - **Diário de Bordo:** O acompanhamento contínuo de aprendizados, medições e surpresas da Squad é registrado semanalmente em [`docs/diario/`](./docs/diario/).

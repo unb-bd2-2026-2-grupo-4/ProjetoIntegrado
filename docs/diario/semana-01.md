@@ -1,4 +1,4 @@
-# Diário de Bordo — Semana 01
+# Diário de Bordo - Semana 01
 
 - **Data:** Semana 1 (Semestre 2026/2)
 - **Autor(es):** Squad G4 (Arthur Evangelista, Davi Camilo, Eduardo de Pina, Euller Júlio, Lucas Alves, Tiago Antunes, Yan Matheus)
@@ -7,9 +7,9 @@
 
 ## O que foi medido e analisado
 
-- Análise detalhada do [Plano de Ensino](https://unb-bd2.github.io/Disciplina/) e das regras do **Projeto Integrado** (55% da nota) e do portfólio de **ADRs** (15% da nota).
+- Análise detalhada do [Plano de Ensino](https://unb-bd2.github.io/PlanoEnsino/) e das regras do **Projeto Integrado** (55% da nota) e do portfólio de **ADRs** (15% da nota).
 - Avaliação dos critérios da rubrica de correção das Entregas (E1 a E4), com destaque para os 30% atribuídos a **funcionamento e reprodutibilidade** a partir de um repositório público e de um `docker-compose.yml` que sobe do zero em máquina limpa.
-- Mapeamento das competências dos membros da Squad em bancos de dados relacionais, modelagem de dados, Docker, Python e pipelines analíticos.
+- Mapeamento das competências dos membros da equipe em bancos de dados relacionais, modelagem de dados, Docker, Python e dados.
 
 ## O que surpreendeu
 

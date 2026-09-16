@@ -1,4 +1,4 @@
-# NNNN — [Título: a decisão, em uma frase afirmativa]
+# NNNN - [Título: a decisão, em uma frase afirmativa]
 
 - **Status:** proposto | aceito | substituído por [ADR-NNNN] | revogado
 - **Data:** AAAA-MM-DD
@@ -8,7 +8,7 @@
 
 ## 1. Contexto
 
-[Que problema motivou esta decisão? Qual é a carga de trabalho, expressa em números reais do domínio (volume de dados, taxa de escrita/leitura, latência tolerada)? Quais restrições não funcionais se aplicam — consistência, disponibilidade, limites de hardware/memória local, licenciamento, conformidade legal (LGPD) e competência da equipe?]
+[Que problema motivou esta decisão? Qual é a carga de trabalho, expressa em números reais do domínio (volume de dados, taxa de escrita/leitura, latência tolerada)? Quais restrições não funcionais se aplicam: consistência, disponibilidade, limites de hardware/memória local, licenciamento, conformidade legal (LGPD) e competência da equipe?]
 
 ## 2. Alternativas consideradas
 

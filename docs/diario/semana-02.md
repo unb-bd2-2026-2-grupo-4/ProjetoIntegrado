@@ -1,4 +1,4 @@
-# Diário de Bordo — Semana 02
+# Diário de Bordo - Semana 02
 
 - **Data:** Semana 2 (Semestre 2026/2)
 - **Autor(es):** Squad G4 (Arthur Evangelista, Davi Camilo, Eduardo de Pina, Euller Júlio, Lucas Alves, Tiago Antunes, Yan Matheus)
@@ -11,7 +11,7 @@
   - Portal Brasileiro de Dados Abertos
   - SNIS (Sistema Nacional de Informações sobre Saneamento)
   - IBGE (portal de dados e malha de municípios)
-  - Novo CAGED / MTE via Base dos Dados (conjunto `br_ms_caged` / microdados de movimentação)
+  - Novo CAGED / MTE via Base dos Dados (conjunto `br_me_caged`)
 - Verificação de volume e características temporais dos microdados do Novo CAGED:
   - Dezenas de milhões de registros anuais cobrindo admissões e desligamentos formais com carimbo temporal mensal.
   - Entidades com mudanças de estado ao longo do tempo (estabelecimentos que alteram porte/CNAE, trabalhadores que mudam de faixa salarial ou ocupação, fusões/mudanças cadastrais).
