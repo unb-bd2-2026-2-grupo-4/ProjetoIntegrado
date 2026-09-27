@@ -2,17 +2,11 @@
 
 Registro de uso de assistentes e agentes de IA no METRA - Monitoramento e Engenharia de dados do TRAbalho (Projeto Integrado).
 
-Este arquivo cumpre a [Política de Uso de IA](https://unb-bd2.github.io/PlanoEnsino/uso-de-ia/)
-da disciplina. Ele não é confissão nem formalidade: é o mesmo tipo de registro
-que um ADR faz para decisões de arquitetura.
+Este arquivo cumpre a [Política de Uso de IA](https://unb-bd2.github.io/PlanoEnsino/uso-de-ia/) da disciplina. Ele não é confissão nem formalidade: é o mesmo tipo de registro que um ADR faz para decisões de arquitetura.
 
-**Duas regras de forma.** Escreva **no momento do uso**, não na véspera da
-Entrega: registro reconstruído de memória sai impreciso, e imprecisão aqui é o
-que a política pune. E versione junto com o código: uma entrada por commit
-relevante é melhor que um resumo mensal.
+**Duas regras de forma:** Escreva **no momento do uso**, não na véspera da Entrega: registro reconstruído de memória sai impreciso, e imprecisão aqui é o que a política pune. E versione junto com o código: uma entrada por commit relevante é melhor que um resumo mensal.
 
-**Não precisa registrar** autocompletar de editor, correção ortográfica ou
-tradução. Registre o que produziu artefato ou mudou uma decisão.
+**Não precisa registrar** autocompletar de editor, correção ortográfica ou tradução. Registre o que produziu artefato ou mudou uma decisão.
 
 ---
 
@@ -31,5 +25,13 @@ tradução. Registre o que produziu artefato ou mudou uma decisão.
 - **Onde:** `src/db/`, `src/ingestao/carga_bronze.py`, `docker/ingestao/Dockerfile`, `docker-compose.yml`, `requirements-pipeline.txt`, `.dockerignore`, `.env.example`, `docs/camada-bronze.md`, `docs/diario/semana-04.md`.
 - **O que foi pedido:** Atuar como engenheiro de dados para consumir os CSVs de `data/` e montar a camada bronze (dados brutos) seguindo a arquitetura do METRA.
 - **O que foi aproveitado:** Perfil dos CSVs feito com DuckDB; schema `bronze` com todas as colunas como `TEXT` e linhagem por arquivo e linha; migração versionada com um executor simples; carga via `COPY` idempotente (SHA-256) e atômica por arquivo; serviços `postgres` e `ingestao-bronze` no Compose; página de documentação com as medições e os achados para a próxima camada.
-- **Como foi verificado:** Carga executada em PostgreSQL 16.2 local com os 14.753.112 registros (54 s). Contagens por arquivo e por ano, nulos, zeros à esquerda e CBOs de 5 dígitos conferidos contra o perfil do DuckDB. Reexecução confirmou a idempotência, inclusive com arquivo renomeado. Um arquivo com linha malformada confirmou o rollback sem carga parcial. O caminho via Docker Compose **não** foi executado na máquina de desenvolvimento, que não tem Docker.
-- **Quem revisou:** _pendente_
+- **Como foi verificado:** Carga executada em PostgreSQL 16.2 local com os 14.753.112 registros (54 s). Contagens por arquivo e por ano, nulos, zeros à esquerda e CBOs de 5 dígitos conferidos contra o perfil do DuckDB. Reexecução confirmou a idempotência, inclusive com arquivo renomeado. Um arquivo com linha malformada confirmou o rollback sem carga parcial. O caminho via Docker Compose não foi executado na máquina de desenvolvimento, que não tem Docker.
+- **Quem revisou:** Lucas
+
+### 2026-09-27 - Camada Bronze Multi-Fontes (IBGE e CBO), Modelo 3FN Insert-Only e Reprodutibilidade E1
+- **Ferramenta:** Antigravity (Google DeepMind)
+- **Onde:** `src/db/migracoes/0002_camada_bronze_referencias.sql`, `src/db/migracoes/0003_modelo_transacional_oltp.sql`, `src/ingestao/carga_ibge.py`, `src/ingestao/carga_cbo.py`, `src/ingestao/carga_oltp.py`, `src/ingestao/executar_pipeline.py`, `data/caged_centro_oeste_amostra.csv`, `docker-compose.yml`, `docs/adr/0001-modelagem-sistema-origem.md`, `docs/camada-bronze.md`, `docs/arquitetura.md`, `README.md`.
+- **O que foi pedido:** Integrar fontes de dados secundárias oficiais (IBGE Localidades, IBGE CNAE 2.0 e CBO 2002) para cumprir o critério de múltiplas fontes na E1, estruturar suas tabelas brutas na camada Bronze com idempotência e linhagem, implementar a normalização completa do modelo relacional transacional em 3FN com padrão estritamente *insert-only* e integridade referencial estrita para o Centro-Oeste (2023-2026), criar amostra representativa versionada de 2,8 MB para garantir reprodutibilidade sem passos manuais por terceiros, e documentar formalmente os três carimbos de tempo e a decisão no ADR 0001.
+- **O que foi aproveitado:** Migração de tabelas bronze de referência; enriquecimento das tabelas de domínio do schema `oltp` (`municipio`, `cbo_2002`, `cnae_secao`, `cnae_subclasse`); rotina de transformação e carga idempotente Bronze -> OLTP 3FN com tratamento de outliers e reconciliação de chaves administrativas; unificação do orquestrador de pipeline no contêiner de ingestão; garantia de fallback automático para a amostra representativa de 49 mil linhas se os arquivos pesados de 828 MB não estiverem presentes; revisão ortográfica completa em português culto acentuado.
+- **Como foi verificado:** Execução real em contêiner PostgreSQL 16 local no Docker, medição de tempo de carga (IBGE municípios 0,33s, CNAE 0,19s, CBO 0,25s), verificação de integridade referencial com junções SQL relacionais, teste de recuperação de linhagem de movimentações para o arquivo CSV físico de origem, teste de build do portal MkDocs e confirmação de idempotência.
+- **Quem revisou:** Arthur Evangelista
