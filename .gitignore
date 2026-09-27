@@ -1,7 +1,9 @@
 # Dados e Armazenamento Local
 data/*
 !data/.gitkeep
+!data/caged_centro_oeste_amostra.csv
 *.csv
+!data/caged_centro_oeste_amostra.csv
 *.tsv
 *.parquet
 *.jsonl
