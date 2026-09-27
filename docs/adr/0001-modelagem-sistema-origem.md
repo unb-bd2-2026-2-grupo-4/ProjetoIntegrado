@@ -2,7 +2,7 @@
 
 - **Status:** proposto
 - **Data:** 2026-09-27
-- **Decisores:** Euller Júlio e Squad G4
+- **Decisores:** Arthur Evangelista, Davi Camilo, Eduardo de Pina, Euller Júlio, Lucas Alves, Tiago Antunes, Yan Matheus (Squad G4)
 
 ---
 
