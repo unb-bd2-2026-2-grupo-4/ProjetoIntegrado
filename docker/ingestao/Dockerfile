@@ -7,5 +7,5 @@ RUN pip install --no-cache-dir -r requirements-pipeline.txt
 
 COPY src/ src/
 
-# Garante o schema (migrações idempotentes) e carrega os CSVs ainda não ingeridos.
-CMD ["sh", "-c", "python src/db/migrar.py && python src/ingestao/carga_bronze.py"]
+# Garante o schema (migrações idempotentes), carrega as fontes Bronze e popula o OLTP (3FN).
+CMD ["python", "src/ingestao/executar_pipeline.py"]

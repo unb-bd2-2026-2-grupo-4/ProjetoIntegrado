@@ -125,7 +125,16 @@ def main(argumentos: list) -> None:
         arquivos = [Path(a) for a in argumentos]
     else:
         diretorio = Path(os.environ.get("METRA_DATA_DIR", DIRETORIO_PADRAO))
-        arquivos = sorted(diretorio.glob("*.csv"))
+        # Prioriza arquivos completos se presentes em data/
+        arquivos_completos = sorted([f for f in diretorio.glob("caged_*.csv") if "amostra" not in f.name])
+        if arquivos_completos:
+            arquivos = arquivos_completos
+            log.info("Executando carga completa com %d arquivos historicos encontrados.", len(arquivos))
+        else:
+            # Fallback automatico para a amostra representativa versionada (reprodutibilidade de terceiros)
+            arquivos = sorted(diretorio.glob("caged_centro_oeste_amostra.csv"))
+            log.info("Arquivos historicos pesados ausentes; utilizando amostra reproduzivel versionada: %s", [f.name for f in arquivos])
+
         if not arquivos:
             raise SystemExit(f"nenhum CSV encontrado em {diretorio}")
 
