@@ -62,4 +62,5 @@ nav:
       - Semana 04: diario/semana-04.md
   - Decisões de Arquitetura (ADR):
       - Template de ADR: adr/template.md
+      - "ADR 0001: Origem Transacional OLTP": adr/0001-modelagem-sistema-origem.md
   - Governança e IA: uso-de-ia.md

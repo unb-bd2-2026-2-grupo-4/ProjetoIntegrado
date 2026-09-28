@@ -48,6 +48,7 @@ services:
       METRA_DATA_DIR: /app/data
     volumes:
       - ./data:/app/data:ro
+      - ./src:/app/src:ro
 
 volumes:
   postgres_data:
