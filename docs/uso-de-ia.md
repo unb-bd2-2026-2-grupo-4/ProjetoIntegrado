@@ -49,3 +49,11 @@ O arquivo [`AI-USAGE.md`](https://github.com/unb-bd2-2026-2-grupo-4/ProjetoInteg
 - **O que foi aproveitado:** Redação dos diários de bordo seguindo estritamente as seções canônicas ("O que foi medido e analisado", "O que surpreendeu" e "O que foi decidido") sem inclusão de tabelas ou gráficos conforme instruído; síntese das diretrizes pedagógicas recebidas; atualização do menu de navegação do MkDocs Material e árvore do repositório no README; sincronização dos registros de transparência no uso de IA.
 - **Como foi verificado:** Revisão do conteúdo técnico frente às orientações da disciplina e aos apontamentos da professora; verificação de links, coerência cronológica e observância à exigência de não inserção de tabelas ou gráficos nos diários.
 - **Quem revisou:** Squad G4 (Arthur Evangelista, Yan Matheus)
+
+### 2026-10-05 - Correção de código e criação de diagramas Mermaid
+- **Ferramenta:** Antigravity (Google DeepMind)
+- **Onde:** `docs/relacionamentos.md` e arquivos de código-fonte.
+- **O que foi pedido:** Correção de bugs na implementação atual e auxílio na sintaxe para a criação de diagramas Mermaid.
+- **O que foi aproveitado:** O código corrigido e a estrutura gerada para a visualização gráfica dos relacionamentos no diagrama.
+- **Como foi verificado:** Validação do funcionamento do código corrigido e verificação da renderização do diagrama na documentação.
+- **Quem revisou:** Euller Júlio
