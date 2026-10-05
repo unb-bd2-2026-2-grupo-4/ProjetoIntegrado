@@ -47,6 +47,8 @@ O **METRA** tem como critério de sucesso a capacidade de responder de forma ág
 
 ## Fontes de Dados e Justificativas Técnicas
 
+Veja [Relacionamento entre as bases](relacionamentos.md) para os campos que conectam essas fontes: código do município, código CBO e subclasse CNAE.
+
 - **Novo CAGED (Microdados de Estabelecimentos e Movimentações):** Disponibilizado pelo Ministério do Trabalho e Emprego (via Base dos Dados). Provê a granularidade de cada admissão e demissão individual com carimbo de tempo mensal e dados cadastrais do empregador.
 - **IBGE (Malha Municipal):** Fornece a chave geográfica padronizada para agregações espaciais e distinção entre capitais e municípios do interior.
 - **CBO 2002 (MTE):** Fornece a classificação estruturada de ocupações e famílias profissionais.
