@@ -42,6 +42,8 @@ Dessa forma, qualquer terceiro consegue reproduzir a carga completa com um únic
 
 ## Modelo Entidade-Relacionamento da Bronze
 
+O diagrama abaixo mostra a **linhagem por ingestão**. Para entender como o CAGED se liga ao IBGE, à CBO e à CNAE pelos códigos de negócio, consulte [Relacionamento entre as bases](relacionamentos.md), com os pares de campos, as cardinalidades e o diagrama do OLTP.
+
 ```mermaid
 erDiagram
     INGESTAO_ARQUIVO ||--o{ CAGED_MOVIMENTACAO : "origina"
