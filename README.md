@@ -148,7 +148,9 @@ E3    | DuckDB + dbt-duckdb   |  (Modelagem Star Schema testada e orquestrada)
         ├── semana-01.md    # Formação da Squad e alinhamento dos critérios de avaliação
         ├── semana-02.md    # Escolha do domínio, personas e as 5 perguntas de gestão
         ├── semana-03.md    # Engenharia de Dados aplicada ao projeto e mapeamento de riscos
-        └── semana-04.md    # Perfil dos dados brutos e carga da camada bronze no PostgreSQL
+        ├── semana-04.md    # Perfil dos dados brutos e carga da camada bronze no PostgreSQL
+        ├── semana-05.md    # Arquitetura do METRA, complexidade acidental e feedback docente
+        └── semana-06.md    # Validação da E1, Dagster, banco vetorial e refinamento do MER
 ```
 
 ---
