@@ -56,3 +56,12 @@ Este arquivo cumpre a [Política de Uso de IA](https://unb-bd2.github.io/PlanoEn
 - **O que foi aproveitado:** O código corrigido e a estrutura gerada para a visualização gráfica dos relacionamentos no diagrama.
 - **Como foi verificado:** Validação do funcionamento do código corrigido e verificação da renderização do diagrama na documentação.
 - **Quem revisou:** Euller Júlio
+
+### 2026-10-05 - Documentação dos relacionamentos entre as bases
+
+- **Ferramenta:** Codex (OpenAI).
+- **Onde:** `docs/relacionamentos.md`, `docs/camada-bronze.md`, `docs/dominio.md`, `mkdocs.yml`, `AI-USAGE.md` e `docs/uso-de-ia.md`.
+- **O que foi pedido:** Esclarecer no GitHub Pages os pares de tabelas e os códigos que relacionam CAGED, IBGE, CBO e CNAE na branch `fix/git-pages-docs`.
+- **O que foi aproveitado:** Página com correspondências entre fontes Bronze, FKs e cardinalidades do OLTP, diagrama Mermaid, regras de padronização implementadas, limitações e exemplo SQL; inclusão na navegação e links nas páginas existentes.
+- **Como foi verificado:** Conferência com as migrações 0002 e 0003 e com `src/ingestao/carga_oltp.py`; geração do site com `mkdocs build --strict`. A consulta foi conferida contra o schema, mas não executada em PostgreSQL. A renderização visual do Mermaid no navegador não foi verificada.
+- **Quem revisou:** Revisão humana pendente.
