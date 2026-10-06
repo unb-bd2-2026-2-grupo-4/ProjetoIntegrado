@@ -1,6 +1,6 @@
 # AI-USAGE.md - Squad G4
 
-Registro de uso de assistentes e agentes de IA no METRA - Monitoramento e Engenharia de dados do TRAbalho (Projeto Integrado).
+Registro de uso de assistentes e agentes de IA no METRA (Monitoramento e Engenharia de dados do TRAbalho).
 
 Este arquivo cumpre a [Política de Uso de IA](https://unb-bd2.github.io/PlanoEnsino/uso-de-ia/) da disciplina. Ele não é confissão nem formalidade: é o mesmo tipo de registro que um ADR faz para decisões de arquitetura.
 
@@ -12,7 +12,7 @@ Este arquivo cumpre a [Política de Uso de IA](https://unb-bd2.github.io/PlanoEn
 
 ## Entradas
 
-### 2026-09-15 - Planejamento de Arquitetura, Estruturação da Documentação e Planilha Técnica
+### 15/09/2026 - Planejamento de Arquitetura, Estruturação da Documentação e Planilha Técnica
 
 - **Ferramenta:** Antigravity (Google DeepMind)
 - **Onde:** `AI-USAGE.md`, `README.md`, `docs/diario/` e documentação MkDocs.
@@ -21,16 +21,16 @@ Este arquivo cumpre a [Política de Uso de IA](https://unb-bd2.github.io/PlanoEn
 - **Como foi verificado:** Confrontação com os requisitos do [Plano de Ensino](https://unb-bd2.github.io/PlanoEnsino/) e regras das Entregas (E1 a E4), checagem das diretrizes de vocabulário do [CONTEXT.md](https://github.com/UnB-BD2/PlanoEnsino/blob/main/CONTEXT.md) e viabilidade de execução reproduzível via Docker em máquina comum.
 - **Quem revisou:** Arthur Evangelista
 
-### 2026-09-16 - Camada bronze: carga dos CSVs brutos do Novo CAGED no PostgreSQL
+### 16/09/2026 - Camada bronze: carga dos CSVs brutos do Novo CAGED no PostgreSQL
 
 - **Ferramenta:** Claude Code (Anthropic, Claude Opus 5)
 - **Onde:** `src/db/`, `src/ingestao/carga_bronze.py`, `docker/ingestao/Dockerfile`, `docker-compose.yml`, `requirements-pipeline.txt`, `.dockerignore`, `.env.example`, `docs/camada-bronze.md`, `docs/diario/semana-04.md`.
 - **O que foi pedido:** Atuar como engenheiro de dados para consumir os CSVs de `data/` e montar a camada bronze (dados brutos) seguindo a arquitetura do METRA.
 - **O que foi aproveitado:** Perfil dos CSVs feito com DuckDB; schema `bronze` com todas as colunas como `TEXT` e linhagem por arquivo e linha; migração versionada com um executor simples; carga via `COPY` idempotente (SHA-256) e atômica por arquivo; serviços `postgres` e `ingestao-bronze` no Compose; página de documentação com as medições e os achados para a próxima camada.
 - **Como foi verificado:** Carga executada em PostgreSQL 16.2 local com os 14.753.112 registros (54 s). Contagens por arquivo e por ano, nulos, zeros à esquerda e CBOs de 5 dígitos conferidos contra o perfil do DuckDB. Reexecução confirmou a idempotência, inclusive com arquivo renomeado. Um arquivo com linha malformada confirmou o rollback sem carga parcial. O caminho via Docker Compose não foi executado na máquina de desenvolvimento, que não tem Docker.
-- **Quem revisou:** Lucas
+- **Quem revisou:** Lucas Alves
 
-### 2026-09-27 - Camada Bronze Multi-Fontes (IBGE e CBO), Modelo 3FN Insert-Only e Reprodutibilidade E1
+### 27/09/2026 - Camada Bronze Multi-Fontes (IBGE e CBO), Modelo 3FN Insert-Only e Reprodutibilidade E1
 
 - **Ferramenta:** Antigravity (Google DeepMind)
 - **Onde:** `src/db/migracoes/0002_camada_bronze_referencias.sql`, `src/db/migracoes/0003_modelo_transacional_oltp.sql`, `src/ingestao/carga_ibge.py`, `src/ingestao/carga_cbo.py`, `src/ingestao/carga_oltp.py`, `src/ingestao/executar_pipeline.py`, `data/caged_centro_oeste_amostra.csv`, `docker-compose.yml`, `docs/adr/0001-modelagem-sistema-origem.md`, `docs/camada-bronze.md`, `docs/arquitetura.md`, `README.md`.
@@ -39,7 +39,7 @@ Este arquivo cumpre a [Política de Uso de IA](https://unb-bd2.github.io/PlanoEn
 - **Como foi verificado:** Execução real em contêiner PostgreSQL 16 local no Docker, medição de tempo de carga (IBGE municípios 0,33s, CNAE 0,19s, CBO 0,25s), verificação de integridade referencial com junções SQL relacionais, teste de recuperação de linhagem de movimentações para o arquivo CSV físico de origem, teste de build do portal MkDocs e confirmação de idempotência.
 - **Quem revisou:** Arthur Evangelista
 
-### 2026-10-05 - Registro dos Diários de Bordo (Semanas 05 e 06), Feedback da E1 e Ajustes de Arquitetura
+### 05/10/2026 - Registro dos Diários de Bordo (Semanas 05 e 06), Feedback da E1 e Ajustes de Arquitetura
 
 - **Ferramenta:** Antigravity (Google DeepMind)
 - **Onde:** `docs/diario/semana-05.md`, `docs/diario/semana-06.md`, `mkdocs.yml`, `README.md`, `AI-USAGE.md`, `docs/uso-de-ia.md`.
@@ -48,7 +48,7 @@ Este arquivo cumpre a [Política de Uso de IA](https://unb-bd2.github.io/PlanoEn
 - **Como foi verificado:** Revisão do conteúdo técnico frente às orientações da disciplina e aos apontamentos da professora; verificação de links, coerência cronológica e observância à exigência de não inserção de tabelas ou gráficos nos diários.
 - **Quem revisou:** Yan Matheus
 
-### 2026-10-05 - Correção de código e criação de diagramas Mermaid
+### 05/10/2026 - Correção de código e criação de diagramas Mermaid
 
 - **Ferramenta:** Antigravity (Google DeepMind)
 - **Onde:** `docs/relacionamentos.md` e arquivos de código-fonte.
@@ -57,11 +57,20 @@ Este arquivo cumpre a [Política de Uso de IA](https://unb-bd2.github.io/PlanoEn
 - **Como foi verificado:** Validação do funcionamento do código corrigido e verificação da renderização do diagrama na documentação.
 - **Quem revisou:** Euller Júlio
 
-### 2026-10-05 - Documentação dos relacionamentos entre as bases
+### 05/10/2026 - Documentação dos relacionamentos entre as bases
 
 - **Ferramenta:** Codex (OpenAI).
 - **Onde:** `docs/relacionamentos.md`, `docs/camada-bronze.md`, `docs/dominio.md`, `mkdocs.yml`, `AI-USAGE.md` e `docs/uso-de-ia.md`.
 - **O que foi pedido:** Esclarecer no GitHub Pages os pares de tabelas e os códigos que relacionam CAGED, IBGE, CBO e CNAE na branch `fix/git-pages-docs`.
 - **O que foi aproveitado:** Página com correspondências entre fontes Bronze, FKs e cardinalidades do OLTP, diagrama Mermaid, regras de padronização implementadas, limitações e exemplo SQL; inclusão na navegação e links nas páginas existentes.
 - **Como foi verificado:** Conferência com as migrações 0002 e 0003 e com `src/ingestao/carga_oltp.py`; geração do site com `mkdocs build --strict`. A consulta foi conferida contra o schema, mas não executada em PostgreSQL. A renderização visual do Mermaid no navegador não foi verificada.
-- **Quem revisou:** Revisão humana pendente.
+- **Quem revisou:** Euller Júlio
+
+### 05/10/2026 - Atualização da documentação da arquitetura da plataforma
+
+- **Ferramenta:** ChatGPT (OpenAI).
+- **Onde:** `README.md`
+- **O que foi pedido:** Atualizar a documentação para refletir a nova arquitetura pragmática adotada pelo projeto, substituindo a proposta anterior baseada em PostgreSQL + MinIO + CDC + DuckDB + dbt + Metabase + ETL reverso, por uma arquitetura simplificada centrada em PostgreSQL como fonte transacional OLTP e DuckDB como motor analítico principal.
+- **O que foi aproveitado:** Revisão do diagrama arquitetural; manutenção do PostgreSQL 16 na E1 como fonte transacional em 3FN; remoção do MinIO como componente obrigatório; simplificação da E2 para extração analítica via DuckDB e/ou Parquet; manutenção do dbt-duckdb e Star Schema na E3; e reformulação da E4 para consumo direto de dados e métricas a partir do DuckDB ou Parquet, sem dependência obrigatória de Metabase ou ETL reverso.
+- **Como foi verificado:** A atualização foi comparada com a decisão arquitetural registrada no ADR de simplificação da plataforma, garantindo consistência entre o diagrama, a descrição das entregas e a separação de responsabilidades entre PostgreSQL e DuckDB.
+- **Quem revisou:** Davi Camilo

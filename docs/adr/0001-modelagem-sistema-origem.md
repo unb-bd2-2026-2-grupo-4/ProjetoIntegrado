@@ -1,8 +1,8 @@
 # 0001 - Modelagem Relacional 3FN com Padrão Insert-Only para o Sistema de Origem OLTP
 
-- **Status:** aceito
-- **Data:** 2026-09-27
-- **Decisores:** Arthur Evangelista, Davi Camilo, Eduardo de Pina, Euller Júlio, Lucas Alves, Tiago Antunes, Yan Matheus (Squad G4)
+- **Status:** Aceito
+- **Data:** 27/09/2026
+- **Decisores:** Arthur Evangelista, Davi Camilo, Euller Júlio, Lucas Alves, Tiago Antunes e Yan Matheus (Squad G4)
 
 ---
 

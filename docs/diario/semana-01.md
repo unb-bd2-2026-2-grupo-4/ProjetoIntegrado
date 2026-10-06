@@ -1,7 +1,7 @@
 # Diário de Bordo - Semana 01
 
 - **Data:** Semana 1 (Semestre 2026/2)
-- **Autor(es):** Squad G4 (Arthur Evangelista, Davi Camilo, Eduardo de Pina, Euller Júlio, Lucas Alves, Tiago Antunes, Yan Matheus)
+- **Autor(es):** Squad G4 (Arthur Evangelista, Davi Camilo, Euller Júlio, Lucas Alves, Tiago Antunes e Yan Matheus)
 
 ---
 
@@ -19,6 +19,6 @@
 
 ## O que foi decidido
 
-- **Formação oficial da Squad G4** com os 7 integrantes alinhados.
+- **Formação oficial da Squad G4** com os 6 integrantes alinhados.
 - Criação e inicialização do repositório Git público da Squad.
 - Estabelecimento do compromisso de manter o `AI-USAGE.md` e o diário de bordo semanais contemporâneos às atividades desenvolvidas, sem deixar para a véspera das entregas.

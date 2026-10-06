@@ -1,20 +1,19 @@
-# METRA - Monitoramento e Engenharia de dados do TRAbalho
+# METRA (Monitoramento e Engenharia de dados do TRAbalho)
 
-Bem-vindo à documentação oficial do **METRA** (Monitoramento e Engenharia de dados do TRAbalho), plataforma de engenharia de dados desenvolvida pela **Squad G4** para a disciplina de **Banco de Dados 2** (Engenharia de Software, FCTE / Universidade de Brasília, Oferta 2026/2).
+Bem-vindo à documentação oficial do **METRA** (Monitoramento e Engenharia de dados do TRAbalho), plataforma de engenharia de dados desenvolvida pela **Squad G4** para a disciplina de **Banco de Dados 2** (Engenharia de Software - FCTE/UnB).
 
 ---
 
 ## Membros da Squad
 
-| Membro | Matrícula | Função Principal |
-| :--- | :--- | :--- |
-| **Arthur Evangelista** | 231027032 | Engenharia de Dados e Modelagem |
-| **Davi Camilo** | 231011220 | Engenharia de Dados e Infraestrutura |
-| **Eduardo de Pina** | 231034494 | Ingestão e Qualidade de Dados |
-| **Euller Júlio** | 231026714 | Modelagem e Documentação |
-| **Lucas Alves** | 231027159 | Pipelines e Carga |
-| **Tiago Antunes** | 231011838 | Arquitetura e Governança |
-| **Yan Matheus** | 231038303 | Análise e Métricas |
+| Membro | Matrícula |
+| :--- | :--- |
+| **Arthur Evangelista** | 231027032 |
+| **Davi Camilo** | 231011220 |
+| **Euller Júlio** | 231026714 |
+| **Lucas Alves** | 231027159 |
+| **Tiago Antunes** | 231011838 |
+| **Yan Matheus** | 231038303 |
 
 ---
 
