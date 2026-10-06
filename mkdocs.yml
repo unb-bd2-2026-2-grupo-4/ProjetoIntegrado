@@ -1,5 +1,5 @@
-site_name: METRA - Monitoramento e Engenharia de dados do Trabalho
-site_description: METRA - Monitoramento e Engenharia de dados do Trabalho | Projeto Integrado de Banco de Dados 2 (FCTE-UnB) - Squad G4
+site_name: METRA (Monitoramento e Engenharia de dados do TRAbalho)
+site_description: METRA (Monitoramento e Engenharia de dados do TRAbalho) | Projeto Integrado de Banco de Dados 2 (FCTE/UnB) - Squad G4
 site_author: Squad G4
 site_url: https://unb-bd2-2026-2-grupo-4.github.io/ProjetoIntegrado/
 repo_url: https://github.com/unb-bd2-2026-2-grupo-4/ProjetoIntegrado
@@ -29,6 +29,9 @@ theme:
       toggle:
         icon: material/brightness-4
         name: Alternar para modo claro
+
+extra:
+  generator: false
 
 extra_css:
   - stylesheets/extra.css

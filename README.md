@@ -1,4 +1,4 @@
-# METRA - Monitoramento e Engenharia de dados do TRAbalho
+# METRA (Monitoramento e Engenharia de dados do TRAbalho)
 
 > **Plataforma de Dados do Mercado de Trabalho Formal (Novo CAGED)**  
 > **Projeto Integrado: Banco de Dados 2 (FCTE / Universidade de Brasília)**  
@@ -16,7 +16,6 @@
 
 - **Arthur Evangelista**
 - **Davi Camilo**
-- **Eduardo de Pina**
 - **Euller Júlio**
 - **Lucas Alves**
 - **Tiago Antunes**
@@ -68,36 +67,48 @@ O projeto integra três fontes públicas oficiais abertas:
 O **METRA** é construído incrementalmente ao longo das quatro Entregas da disciplina, operando integralmente em contêineres Docker locais via `docker-compose.yml`:
 
 ```text
-[Fontes Oficiais: CAGED (MTE) / IBGE / CBO]
-                 |
-                 v (Carga Idempotente Versionada)
-      +-----------------------+
-E1    |   PostgreSQL 16       |  (Camada Bronze Raw + Schema OLTP 3FN Insert-Only)
-      +-----------+-----------+
-                  |
-                  v (Ingestão em Lote e CDC via WAL)
-      +-----------------------+
-E2    | MinIO + Apache Parquet|  (Armazenamento Analítico em Formato Aberto)
-      +-----------+-----------+
-                  |
-                  v (Processamento Vetorizado Multi-Core)
-      +-----------------------+
-E3    | DuckDB + dbt-duckdb   |  (Modelagem Star Schema testada e orquestrada)
-      +-----------+-----------+
-                  |
-         +--------+--------+
-         v                 v
-  +-------------+   +------------------------------+
-  | Painel      |   | Camada Semântica de Métricas |
-  | Analítico   |   | + ETL Reverso de Alertas     | E4
-  | (Metabase)  |   | para Gestão Pública          |
-  +-------------+   +------------------------------+
+[Fontes Oficiais: Novo CAGED (MTE) / IBGE / CBO]
+                         |
+                         v
+              (Carga Reprodutível e Versionada)
+              +---------------------------+
+E1            |       PostgreSQL 16       |
+              | Fonte Transacional OLTP   |
+              | Modelo 3FN + PKs/FKs      |
+              +-------------+-------------+
+                            |
+                            v
+                 (Extração Analítica)
+              +---------------------------+
+E2            |          DuckDB           |
+              | Leitura do PostgreSQL     |
+              | e/ou arquivos Parquet     |
+              +-------------+-------------+
+                            |
+                            v
+              (Transformações Analíticas)
+              +---------------------------+
+E3            |    DuckDB + dbt-duckdb    |
+              |      Star Schema          |
+              | Testes de Qualidade       |
+              +-------------+-------------+
+                            |
+                            v
+                    (Consumo)
+              +---------------------------+
+E4            | Análises e Visualizações  |
+              | sobre DuckDB / Parquet    |
+              | + Camada de Métricas      |
+              +---------------------------+
 ```
 
-- **E1 (Semana 7):** Camada Bronze multi-fontes e sistema transacional OLTP (PostgreSQL 16) modelado rigorosamente em 3FN com padrão *insert-only*, populado de forma reproduzível com dados reais de grande volume.
-- **E2 (Semana 10):** Ingestão em lote e fluxo de captura contínua de mudanças (CDC) gravando em armazenamento aberto (MinIO + Parquet).
-- **E3 (Semana 13):** Camada analítica transformada em modelo dimensional (Star Schema), com testes automatizados de qualidade via `dbt` e orquestração agendada.
-- **E4 (Semana 16):** Camada dupla de consumo (dashboard analítico no Metabase + camada semântica de métricas), caminho de **ETL reverso** para retroalimentação da origem, linhagem de dados e conformidade com a LGPD.
+- **E1 (Semana 7):** Fonte transacional implementada em **PostgreSQL 16**, com modelo OLTP normalizado em **3FN**, integridade referencial por PKs/FKs, migrações versionadas e carga reprodutível dos dados oficiais utilizados pelo projeto.
+
+- **E2 (Semana 10):** Extração dos dados da fonte transacional para processamento analítico pelo **DuckDB**, que pode consultar diretamente o PostgreSQL ou consumir arquivos colunares **Parquet** gerados em lote, eliminando a necessidade de uma camada intermediária baseada em MinIO.
+
+- **E3 (Semana 13):** Construção da camada analítica em **DuckDB**, utilizando **dbt-duckdb** para transformar os dados em modelo dimensional **Star Schema**, aplicar testes automatizados de qualidade e manter as transformações reproduzíveis e versionadas.
+
+- **E4 (Semana 16):** Camada de consumo baseada diretamente nos dados analíticos disponibilizados pelo **DuckDB** ou pelos arquivos Parquet gerados por ele, permitindo consultas, métricas, análises e visualizações. Ferramentas externas de visualização podem ser integradas quando necessário, sem constituírem dependência obrigatória da arquitetura.
 
 ---
 

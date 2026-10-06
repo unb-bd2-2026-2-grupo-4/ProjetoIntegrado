@@ -1,8 +1,8 @@
 # 0002 - Simplificação Arquitetural da Plataforma: Adoção do DuckDB e Conciliação entre Ementa e Execução Pragmática
 
-- **Status:** aceito
-- **Data:** 2026-10-05
-- **Decisores:** Arthur Evangelista, Davi Camilo, Eduardo de Pina, Euller Júlio, Lucas Alves, Tiago Antunes, Yan Matheus (Squad G4)
+- **Status:** Aceito
+- **Data:** 05/10/2026
+- **Decisores:** Arthur Evangelista, Davi Camilo, Euller Júlio, Lucas Alves, Tiago Antunes e Yan Matheus (Squad G4)
 
 ---
 

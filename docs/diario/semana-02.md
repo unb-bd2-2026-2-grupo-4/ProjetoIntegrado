@@ -1,7 +1,7 @@
 # Diário de Bordo - Semana 02
 
 - **Data:** Semana 2 (Semestre 2026/2)
-- **Autor(es):** Squad G4 (Arthur Evangelista, Davi Camilo, Eduardo de Pina, Euller Júlio, Lucas Alves, Tiago Antunes, Yan Matheus)
+- **Autor(es):** Squad G4 (Arthur Evangelista, Davi Camilo, Euller Júlio, Lucas Alves, Tiago Antunes e Yan Matheus)
 
 ---
 
