@@ -57,6 +57,7 @@ nav:
   - Engenharia de Dados:
       - Arquitetura da Plataforma: arquitetura.md
       - Camada Bronze: camada-bronze.md
+      - Relacionamento entre as Bases: relacionamentos.md
   - Governança & Decisões:
       - Decisões de Arquitetura (ADR):
           - "ADR 0001: Origem Transacional OLTP": adr/0001-modelagem-sistema-origem.md
